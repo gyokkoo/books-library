@@ -64,8 +64,8 @@ export default class App extends Component {
 
     // Load state
     this.setState({
-      username: sessionStorage.getItem('username'),
-      userId: sessionStorage.getItem('userId')
+      username: window.sessionStorage.getItem('username'),
+      userId: window.sessionStorage.getItem('userId')
     })
 
     this.showHomeView()
