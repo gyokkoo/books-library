@@ -58,22 +58,6 @@ class RegisterPage extends Component {
       this.props.history.push('/home')
       this.showInfo('You have successfully registered')
     }
-
-        // userData.register(user.email, user.password)
-    //   .then(result => {
-    //     if (result.error) {
-    //       this.setState({
-    //         error: result.error
-    //       })
-    //       return
-    //     }
-    //     Auth.authenticateUser(result.token)
-
-    //     this.props.history.push('/account')
-    //   })
-
-    // Register user on the server
-    // Redirect
   }
 
   validateUser (user) {

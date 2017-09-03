@@ -1,15 +1,15 @@
 class Auth {
   static authenticateUser (token) {
-    window.localStorage.setItem('token', token)
+    window.sessionStorage.setItem('authToken', token)
   }
   static isUserAuthenticated () {
-    return window.localStorage.getItem('authToken') !== null
+    return window.sessionStorage.getItem('authToken') !== null
   }
   static deauthenticateUser () {
-    window.localStorage.removeItem('token')
+    window.sessionStorage.removeItem('authToken')
   }
   static getToken () {
-    return window.localStorage.getItem('token')
+    return window.sessionStorage.getItem('authToken')
   }
 }
 

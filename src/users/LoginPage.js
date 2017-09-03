@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Auth from './Auth'
 import KinveyRequester from '../KinveyRequester'
 
 import LoginForm from './LoginForm'
@@ -53,20 +52,6 @@ class LoginPage extends Component {
       this.props.history.push('/home')
       this.showInfo('You have successfully logged in')
     }
-
-    // userData.login(user.username, user.password)
-    // .then(result => {
-    //   if (result.error) {
-    //     this.setState({
-    //       error: result.error
-    //     })
-
-    //     return
-    //   }
-
-    //   Auth.authenticateUser(result.token)
-    //   // this.props.history.push('/account')
-    // })
   }
 
   render () {

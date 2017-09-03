@@ -5,7 +5,7 @@ let KinveyRequester = (function () {
   const appId = 'kid_r1IUXbP2'
   const appSecret = 'd65a1a31c04d49f7aaadcfaf12754ac4'
   const appAuthHeaders = {
-    Authorization: 'Basic ' + btoa(appId + ':' + appSecret)
+    Authorization: 'Basic ' + window.btoa(appId + ':' + appSecret)
   }
 
   function loginUser (username, password) {
@@ -73,7 +73,7 @@ let KinveyRequester = (function () {
 
   function logoutUser () {
     return $.ajax({
-      method: 'GET',
+      method: 'POST',
       url: baseUrl + 'user/' + appId + '/_logout',
       headers: getUserAuthHeaders()
     })

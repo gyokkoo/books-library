@@ -5,7 +5,7 @@ import './NavigationBar.css'
 
 export default class NavigationBar extends Component {
   render () {
-    if (window.localStorage.getItem('authToken') !== null) {
+    if (window.sessionStorage.getItem('authToken') === null) {
       return (
         <div className='navigation-bar'>
           <Link to='/'>Home</Link>
@@ -20,7 +20,7 @@ export default class NavigationBar extends Component {
           <Link to='/books'>Books</Link>
           <Link to='/create-book'>Create Book</Link>
           <Link to='/logout'>Logout</Link>
-          <span className='loggedInUser'>Welcome, {this.props.username}!</span>
+          <span className='loggedInUser'>Welcome, {window.sessionStorage.getItem('username')}!</span>
         </div>
       )
     }
