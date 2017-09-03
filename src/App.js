@@ -4,11 +4,8 @@ import './App.css'
 
 import NavigationBar from './components/NavigationBar'
 import Footer from './components/Footer'
+import Routes from './routes'
 
-import HomeView from './views/HomeView'
-import LoginView from './views/LoginView'
-import RegisterView from './views/RegisterView'
-import BooksView from './views/BooksView'
 import CreateBookView from './views/CreateBookView'
 import EditBookView from './views/EditBookView'
 import DeleteBookView from './views/DeleteBookView'
@@ -28,21 +25,15 @@ export default class App extends Component {
   render () {
     return (
       <div className='App'>
-        <header>
-          <NavigationBar
-            username={this.state.username}
-            homeClicked={this.showHomeView.bind(this)}
-            loginClicked={this.showLoginView.bind(this)}
-            registerClicked={this.showRegisterView.bind(this)}
-            booksClicked={this.showBooksView.bind(this)}
-            createBookClicked={this.showCreateBookView.bind(this)}
-            logoutClicked={this.logout.bind(this)}
-          />
-          <div id='loadingBox'>Loading msg</div>
-          <div id='infoBox'>Info msg</div>
-          <div id='errorBox'>Error msg</div>
-        </header>
-        <div id='main' />
+        <NavigationBar />
+        <div className='container'>
+          <Routes />
+          <header>
+            <div id='loadingBox'>Loading msg</div>
+            <div id='infoBox'>Info msg</div>
+            <div id='errorBox'>Error msg</div>
+          </header>
+        </div>
         <Footer />
       </div>
     )
@@ -67,8 +58,6 @@ export default class App extends Component {
       username: window.sessionStorage.getItem('username'),
       userId: window.sessionStorage.getItem('userId')
     })
-
-    this.showHomeView()
 
     $('#errorBox, #infoBox').click(function () {
       $('#errorBox').hide()
@@ -98,35 +87,18 @@ export default class App extends Component {
     $('#errorBox').text('Error: ' + errorMsg).show()
   }
 
-  showView (reactComponent) {
-    ReactDOM.render(reactComponent, document.getElementById('main'))
-    $('#errorBox').hide()
-  }
+  // showBooksView () {
+  //   KinveyRequester.findAllBooks().then(loadBooksSuccess.bind(this))
 
-  showHomeView () {
-    this.showView(<HomeView username={this.state.username} />)
-  }
-
-  showLoginView () {
-    this.showView(<LoginView onsubmit={this.login.bind(this)} />)
-  }
-
-  showRegisterView () {
-    this.showView(<RegisterView onsubmit={this.register.bind(this)} />)
-  }
-
-  showBooksView () {
-    KinveyRequester.findAllBooks().then(loadBooksSuccess.bind(this))
-
-    function loadBooksSuccess (books) {
-      this.showView(<BooksView
-        books={books}
-        userId={this.state.userId}
-        editBookClicked={this.prepareBookForEdit.bind(this)}
-        deleteBookClicked={this.confirmBookDelete.bind(this)} />)
-      this.showInfo('Books loaded')
-    }
-  }
+  //   function loadBooksSuccess (books) {
+  //     this.showView(<BooksView
+  //       books={books}
+  //       userId={this.state.userId}
+  //       editBookClicked={this.prepareBookForEdit.bind(this)}
+  //       deleteBookClicked={this.confirmBookDelete.bind(this)} />)
+  //     this.showInfo('Books loaded')
+  //   }
+  // }
 
   prepareBookForEdit (bookId) {
     KinveyRequester.findBookById(bookId)
@@ -199,25 +171,25 @@ export default class App extends Component {
     }
   }
 
-  login (username, password) {
-    KinveyRequester.loginUser(username, password).then(loginSuccess.bind(this))
+  // login (username, password) {
+  //   KinveyRequester.loginUser(username, password).then(loginSuccess.bind(this))
 
-    function loginSuccess (userInfo) {
-      this.saveAuthInSession(userInfo)
-      this.showBooksView()
-      this.showInfo('You have successfully logged in')
-    }
-  }
+  //   function loginSuccess (userInfo) {
+  //     this.saveAuthInSession(userInfo)
+  //     this.showBooksView()
+  //     this.showInfo('You have successfully logged in')
+  //   }
+  // }
 
-  register (username, password) {
-    KinveyRequester.registerUser(username, password).then(registerSuccess.bind(this))
+  // register (username, password) {
+  //   KinveyRequester.registerUser(username, password).then(registerSuccess.bind(this))
 
-    function registerSuccess (userInfo) {
-      this.saveAuthInSession(userInfo)
-      this.showBooksView()
-      this.showInfo('You have successfully registered')
-    }
-  }
+  //   function registerSuccess (userInfo) {
+  //     this.saveAuthInSession(userInfo)
+  //     this.showBooksView()
+  //     this.showInfo('You have successfully registered')
+  //   }
+  // }
 
   saveAuthInSession (userInfo) {
     window.sessionStorage.setItem('authToken', userInfo._kmd.authtoken)
