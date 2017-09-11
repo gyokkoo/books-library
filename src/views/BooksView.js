@@ -47,25 +47,25 @@ export default class BooksView extends Component {
     }
   }
 
-  editBook (bookId, title, author, description) {
-    KinveyRequester.editBook(bookId, title, author, description)
-      .then(editBookSuccess.bind(this))
+  // editBook (bookId, title, author, description) {
+  //   KinveyRequester.editBook(bookId, title, author, description)
+  //     .then(editBookSuccess.bind(this))
 
-    function editBookSuccess () {
-      this.props.history.push('/books')
-      this.showInfo('Book created.')
-    }
-  }
+  //   function editBookSuccess () {
+  //     this.props.history.push('/books')
+  //     this.showInfo('Book created.')
+  //   }
+  // }
 
-  deleteBook (bookId) {
-    KinveyRequester.deleteBook(bookId)
-      .then(deleteBookSuccess.bind(this))
+  // deleteBook (bookId) {
+  //   KinveyRequester.deleteBook(bookId)
+  //     .then(deleteBookSuccess.bind(this))
 
-    function deleteBookSuccess () {
-      this.props.history.push('/books')
-      this.showInfo('Book deleted.')
-    }
-  }
+  //   function deleteBookSuccess () {
+  //     this.props.history.push('/books')
+  //     this.showInfo('Book deleted.')
+  //   }
+  // }
 
   render () {
     let bookRows = this.state.books.map(book =>
@@ -102,13 +102,11 @@ export default class BooksView extends Component {
       return (
         <td>
           <Link to={`/edit-book/${book._id}`}>
-            <input type='button' value='Edit'
-              onClick={this.prepareBookForEdit.bind(this, book._id)} />
+            <input type='button' value='Edit' />
           </Link>
           &nbsp;
           <Link to={`/delete-book/${book._id}`}>
-            <input type='button' value='Delete'
-              onClick={this.deleteBook.bind(this, book._id)} />
+            <input type='button' value='Delete' />
           </Link>
         </td>
       )

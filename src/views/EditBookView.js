@@ -96,14 +96,4 @@ export default class EditBookView extends Component {
       return null
     }
   }
-
-  submitForm (event) {
-    event.preventDefault()
-    this.props.onsubmit(
-      this.props.bookId,
-      this.titleField.value,
-      this.authorField.value,
-      this.descriptionField.value
-    )
-  }
 }

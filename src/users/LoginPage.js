@@ -43,7 +43,6 @@ class LoginPage extends Component {
       window.sessionStorage.setItem('userId', userInfo._id)
       window.sessionStorage.setItem('username', userInfo.username)
 
-      // This will update the entire app UI (e.g. the navigation bar)
       this.setState({
         username: userInfo.username,
         userId: userInfo._id
