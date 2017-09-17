@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Helpers from '../../utilities/Helpers'
 import KinveyRequester from '../../utilities/KinveyRequester'
 import EditBookView from './EditBookView'
+import './BooksView.css'
 
 export default class BooksView extends Component {
   constructor (props) {
@@ -17,16 +18,12 @@ export default class BooksView extends Component {
 
   componentDidMount () {
     KinveyRequester.findAllBooks().then(loadBooksSuccess.bind(this))
-    function loadBooksSuccess(books) {
+    function loadBooksSuccess (books) {
       this.setState({
         books: books,
         userId: window.sessionStorage.getItem('userId')
       })
       Helpers.showInfo('Books loaded')
-      // this.showView(<BooksView
-      //   books={books}
-      //   userId={this.state.userId}
-      //   editBookClicked={this.prepareBookForEdit.bind(this)}
     }
   }
 
@@ -47,26 +44,6 @@ export default class BooksView extends Component {
     }
   }
 
-  // editBook (bookId, title, author, description) {
-  //   KinveyRequester.editBook(bookId, title, author, description)
-  //     .then(editBookSuccess.bind(this))
-
-  //   function editBookSuccess () {
-  //     this.props.history.push('/books')
-  //     this.showInfo('Book created.')
-  //   }
-  // }
-
-  // deleteBook (bookId) {
-  //   KinveyRequester.deleteBook(bookId)
-  //     .then(deleteBookSuccess.bind(this))
-
-  //   function deleteBookSuccess () {
-  //     this.props.history.push('/books')
-  //     this.showInfo('Book deleted.')
-  //   }
-  // }
-
   render () {
     let bookRows = this.state.books.map(book =>
       <tr key={book._id}>
@@ -78,7 +55,7 @@ export default class BooksView extends Component {
     )
 
     return (
-      <div className='books-view'>
+      <div className='books-view container text-center'>
         <h1>Books</h1>
         <table className='books-table'>
           <thead>

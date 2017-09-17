@@ -44,7 +44,7 @@ export default class App extends Component {
     return (
       <div className='App'>
         <NavigationBar />
-        <div className='container main'>
+        <div className='main'>
           <header>
             <div id='loadingBox'>Loading ..</div>
             <div id='infoBox'>Info msg</div>

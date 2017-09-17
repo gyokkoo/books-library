@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render () {
     return (
       <div className='footer-view'>
-        &copy; 2017 - ReactJS Book Library Project
+        &copy; 2017 - ReactJS Books Library Project
       </div>
     )
   }
