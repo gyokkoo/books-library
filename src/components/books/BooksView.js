@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import Helpers from '../utilities/Helpers'
-import KinveyRequester from '../KinveyRequester'
+import Helpers from '../../utilities/Helpers'
+import KinveyRequester from '../../utilities/KinveyRequester'
 import EditBookView from './EditBookView'
 
 export default class BooksView extends Component {

@@ -1,14 +1,14 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import HomeView from './views/HomeView'
-import BooksView from './views/BooksView'
-import EditBookView from './views/EditBookView'
-import CreateBookView from './views/CreateBookView'
-import DeleteBookView from './views/DeleteBookView'
-import LoginPage from './users/LoginPage'
-import RegisterPage from './users/RegisterPage'
-import Logout from './users/Logout'
+import HomeView from './components/books/HomeView'
+import BooksView from './components/books//BooksView'
+import EditBookView from './components/books//EditBookView'
+import CreateBookView from './components/books/CreateBookView'
+import DeleteBookView from './components/books/DeleteBookView'
+import LoginPage from './components/users/LoginPage'
+import RegisterPage from './components/users/RegisterPage'
+import Logout from './components/users/Logout'
 
 const Routes = () => (
   <Switch>

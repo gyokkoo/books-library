@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import RegisterForm from './RegisterForm'
 
-import KinveyRequester from '../KinveyRequester'
+import KinveyRequester from '../../utilities/KinveyRequester'
 
 class RegisterPage extends Component {
   constructor (props) {

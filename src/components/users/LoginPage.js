@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import KinveyRequester from '../KinveyRequester'
+import KinveyRequester from '../../utilities/KinveyRequester'
 
 import LoginForm from './LoginForm'
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import KinveyRequester from '../KinveyRequester'
-import Helpers from '../utilities/Helpers'
+import KinveyRequester from '../../utilities/KinveyRequester'
+import Helpers from '../../utilities/Helpers'
 
 export default class EditBookView extends Component {
   constructor (props) {

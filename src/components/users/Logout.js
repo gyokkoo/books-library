@@ -1,6 +1,6 @@
 import { Component } from 'react'
-import Helpers from '../utilities/Helpers'
-import KinveyRequester from '../KinveyRequester'
+import Helpers from '../../utilities/Helpers'
+import KinveyRequester from '../../utilities/KinveyRequester'
 
 class Logout extends Component {
   componentWillMount () {

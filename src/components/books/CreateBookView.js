@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import KinveyRequester from '../KinveyRequester'
-import Helpers from '../utilities/Helpers'
+import KinveyRequester from '../../utilities/KinveyRequester'
+import Helpers from '../../utilities/Helpers'
 
 class CreateBookView extends Component {
   constructor (props) {
