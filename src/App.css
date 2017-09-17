@@ -1,6 +1,3 @@
-.App {
-}
-
 #infoBox, #errorBox, #loadingBox {
     width: 80%;
     margin: 10px auto;
@@ -10,6 +7,11 @@
     border-radius: 3px;
     display: none;
     cursor: pointer;
+}
+
+.main {
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 #loadingBox {

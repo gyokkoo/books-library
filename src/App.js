@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import './App.css'
 import Helpers from './utilities/Helpers'
 
-import NavigationBar from './components/NavigationBar'
-import Footer from './components/Footer'
+import NavigationBar from './components/navbar/NavigationBar'
+import Footer from './components/footer/Footer'
 import Routes from './routes'
 
 import $ from 'jquery'
@@ -44,13 +44,13 @@ export default class App extends Component {
     return (
       <div className='App'>
         <NavigationBar />
-        <div className='container'>
-          <Routes />
+        <div className='container main'>
           <header>
             <div id='loadingBox'>Loading ..</div>
             <div id='infoBox'>Info msg</div>
             <div id='errorBox'>Error msg</div>
           </header>
+          <Routes />
         </div>
         <Footer />
       </div>
