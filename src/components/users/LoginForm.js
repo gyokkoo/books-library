@@ -35,7 +35,7 @@ const LoginForm = (props) => (
           <br />
           <p>
             <span>New user? </span>
-            <Link to='/register'>Create new account</Link>
+            <Link to='/books-library/register'>Create new account</Link>
           </p>
         </div>
       </div>

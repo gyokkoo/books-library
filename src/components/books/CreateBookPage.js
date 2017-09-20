@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import KinveyRequester from '../../utilities/KinveyRequester'
 import Helpers from '../../utilities/Helpers'
+import './Form.css'
 
 class CreateBookPage extends Component {
   constructor (props) {
@@ -47,33 +48,47 @@ class CreateBookPage extends Component {
 
   render () {
     return (
-      <form className='create-book-form'>
-        <h1>Create Book</h1>
-        <label>
-          <div>Title:</div>
-          <input type='text' name='title' size='35' required
-            value={this.state.book.title}
-            onChange={this.handleUserChange} />
-        </label>
-        <br />
-        <label>
-          <div>Author:</div>
-          <input type='text' name='author' required
-            value={this.state.book.author}
-            onChange={this.handleUserChange} />
-        </label>
-        <br />
-        <label>
-          <div>Description:</div>
-          <textarea name='description' rows='10'
-            value={this.state.book.description}
-            onChange={this.handleUserChange} />
-        </label>
-        <br />
-        <div>
-          <input type='submit' value='Create' onClick={this.createBook} />
+      <div className='row'>
+        <div className='col-md-offset-4 col-md-3'>
+          <form className='book-form'>
+            <h2>Create Book</h2>
+            <label>
+              <div>Title:</div>
+              <input
+                className='form-control input-sm chat-input'
+                type='text' name='title' size='50' required
+                value={this.state.book.title}
+                onChange={this.handleUserChange} />
+            </label>
+            <br />
+            <label>
+              <div>Author:</div>
+              <input
+                className='form-control input-sm chat-input'
+                type='text' name='author' required
+                value={this.state.book.author}
+                onChange={this.handleUserChange} />
+            </label>
+            <br />
+            <label>
+              <div>Description:</div>
+              <textarea
+                className='form-control input-sm chat-input'
+                name='description' rows='10'
+                value={this.state.book.description}
+                onChange={this.handleUserChange} />
+            </label>
+            <br />
+            <span className='group-btn'>
+              <input
+                className='btn btn-primary btn-md'
+                value='Create Book'
+                type='submit'
+                onClick={this.createBook} />
+            </span>
+          </form>
         </div>
-      </form>
+      </div>
     )
   }
 }

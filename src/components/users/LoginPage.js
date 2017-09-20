@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import KinveyRequester from '../../utilities/KinveyRequester'
+import Helpers from '../../utilities/Helpers'
 
 import LoginForm from './LoginForm'
 
@@ -49,7 +50,7 @@ class LoginPage extends Component {
       })
 
       this.props.history.push('/books-library/home')
-      this.showInfo('You have successfully logged in')
+      Helpers.showInfo('You have successfully logged in')
     }
   }
 

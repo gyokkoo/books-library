@@ -16,11 +16,11 @@ class HomePage extends Component {
     } else {
       userGreeting =
         <div>
-          <Link to='books-library/login'>
+          <Link to='/books-library/login'>
             <button>Login</button>
           </Link>
           &nbsp;
-          <Link to='books-library/register'>
+          <Link to='/books-library/register'>
             <button>Sign up</button>
           </Link>
         </div>
