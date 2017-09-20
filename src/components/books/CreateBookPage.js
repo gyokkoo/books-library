@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import KinveyRequester from '../../utilities/KinveyRequester'
 import Helpers from '../../utilities/Helpers'
 
-class CreateBookView extends Component {
+class CreateBookPage extends Component {
   constructor (props) {
     super(props)
 
@@ -41,7 +41,7 @@ class CreateBookView extends Component {
     .then(createBookSuccess.bind(this))
     function createBookSuccess () {
       Helpers.showInfo(`The book ${this.state.title} was created!`)
-      this.props.history.push('/books')
+      this.props.history.push('/books-library/books')
     }
   }
 
@@ -78,4 +78,4 @@ class CreateBookView extends Component {
   }
 }
 
-export default CreateBookView
+export default CreateBookPage

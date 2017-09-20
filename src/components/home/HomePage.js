@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import './HomePage.css'
 
 class HomePage extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-
-    }
-  }
-
   render () {
     let userGreeting
     let username = window.sessionStorage.getItem('username')
@@ -16,18 +11,23 @@ class HomePage extends Component {
       userGreeting =
         <div>
           <h2>Hello, {username}!</h2>
-          {/* <h3>Add your favourite books and enjoy browsing</h3> */}
+          <hr />
         </div>
     } else {
       userGreeting =
         <div>
-          <h2>Hello, dear friend!</h2>
-          <h3>Please sign in here</h3>
+          <Link to='books-library/login'>
+            <button>Login</button>
+          </Link>
+          &nbsp;
+          <Link to='books-library/register'>
+            <button>Sign up</button>
+          </Link>
         </div>
     }
     return (
       <div className='home-view text-center'>
-        <h1>Welcome to the world of books</h1>
+        <h2>Welcome to the world of books</h2>
         {userGreeting}
       </div>
     )

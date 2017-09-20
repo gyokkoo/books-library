@@ -4,7 +4,7 @@ import Helpers from './utilities/Helpers'
 
 import NavigationBar from './components/navbar/NavigationBar'
 import Footer from './components/footer/Footer'
-import Routes from './routes'
+import Routes from './components/common/routes/Routes'
 
 import $ from 'jquery'
 
@@ -45,11 +45,9 @@ export default class App extends Component {
       <div className='App'>
         <NavigationBar />
         <div className='main'>
-          <header>
-            <div id='loadingBox'>Loading ..</div>
-            <div id='infoBox'>Info msg</div>
-            <div id='errorBox'>Error msg</div>
-          </header>
+          <div id='loadingBox'>Loading ..</div>
+          <div id='infoBox'>Info msg</div>
+          <div id='errorBox'>Error msg</div>
           <Routes />
         </div>
         <Footer />

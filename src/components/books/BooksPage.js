@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 import Helpers from '../../utilities/Helpers'
 import KinveyRequester from '../../utilities/KinveyRequester'
-import EditBookView from './EditBookView'
-import './BooksView.css'
+import EditBookPage from './EditBookPage'
+import './BooksPage.css'
 
 export default class BooksView extends Component {
   constructor (props) {
@@ -33,7 +33,7 @@ export default class BooksView extends Component {
 
     function loadBookForEditSuccess (bookInfo) {
       this.showView(
-        <EditBookView
+        <EditBookPage
           onsubmit={this.editBook.bind(this)}
           bookId={bookInfo._id}
           title={bookInfo.title}
@@ -78,11 +78,11 @@ export default class BooksView extends Component {
     if (book._acl.creator === window.sessionStorage.getItem('userId')) {
       return (
         <td>
-          <Link to={`/edit-book/${book._id}`}>
+          <Link to={`/books-library/edit-book/${book._id}`}>
             <input type='button' value='Edit' />
           </Link>
           &nbsp;
-          <Link to={`/delete-book/${book._id}`}>
+          <Link to={`/books-library/delete-book/${book._id}`}>
             <input type='button' value='Delete' />
           </Link>
         </td>

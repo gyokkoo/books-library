@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import KinveyRequester from '../../utilities/KinveyRequester'
 import Helpers from '../../utilities/Helpers'
 
-export default class DeleteBookView extends Component {
+class DeleteBookPage extends Component {
   constructor (props) {
     super(props)
 
@@ -45,7 +45,7 @@ export default class DeleteBookView extends Component {
     .then(deleteBookSuccess.bind(this))
 
     function deleteBookSuccess () {
-      this.props.history.push('/books')
+      this.props.history.push('/books-library/books')
     }
   }
 
@@ -82,3 +82,5 @@ export default class DeleteBookView extends Component {
     }
   }
 }
+
+export default DeleteBookPage

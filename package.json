@@ -1,6 +1,6 @@
 {
   "name": "book-library",
-  "homepage": "https://nezhdetov.github.io/books-library",
+  "homepage": "https://nezhdetov.github.io/books-library/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

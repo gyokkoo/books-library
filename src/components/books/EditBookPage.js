@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import KinveyRequester from '../../utilities/KinveyRequester'
 import Helpers from '../../utilities/Helpers'
 
-export default class EditBookView extends Component {
+class EditBookPage extends Component {
   constructor (props) {
     super(props)
 
@@ -57,7 +57,7 @@ export default class EditBookView extends Component {
     .then(editBookSuccess.bind(this))
     function editBookSuccess () {
       Helpers.showInfo(`The book ${this.state.title} was edited`)
-      this.props.history.push('/books')
+      this.props.history.push('/books-library/books')
     }
   }
 
@@ -97,3 +97,5 @@ export default class EditBookView extends Component {
     }
   }
 }
+
+export default EditBookPage

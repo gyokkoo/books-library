@@ -9,17 +9,17 @@ class NavigationBar extends Component {
     if (window.sessionStorage.getItem('authToken') === null) {
       navbarLinks =
         <span>
-          <Link to='/'>Home</Link>
-          <Link to='/login'>Login</Link>
-          <Link to='/register'>Register</Link>
+          <Link to='/books-library/home'>Home</Link>
+          <Link to='/books-library/login'>Login</Link>
+          <Link to='/books-library/register'>Register</Link>
         </span>
     } else {
       navbarLinks =
         <span>
-          <Link to='/'>Home</Link>
-          <Link to='/books'>Books</Link>
-          <Link to='/create-book'>Create Book</Link>
-          <Link to='/logout'>Logout</Link>
+          <Link to='/books-library/home'>Home</Link>
+          <Link to='/books-library/books'>Books</Link>
+          <Link to='/books-library/create-book'>Create Book</Link>
+          <Link to='/books-library/logout'>Logout</Link>
           <span className='loggedInUser'>Welcome, {window.sessionStorage.getItem('username')}!</span>
         </span>
     }
@@ -27,7 +27,7 @@ class NavigationBar extends Component {
     return (
       <nav>
         <div className='navigation-bar navbar-fixed-top'>
-          <Link to='/' className='navbar-header'>
+          <Link to='/books-library/' className='navbar-header'>
             Books Library <span className='glyphicon glyphicon-book' />
           </Link>
           {navbarLinks}

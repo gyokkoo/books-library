@@ -48,7 +48,7 @@ class LoginPage extends Component {
         userId: userInfo._id
       })
 
-      this.props.history.push('/home')
+      this.props.history.push('/books-library/home')
       this.showInfo('You have successfully logged in')
     }
   }
@@ -56,9 +56,7 @@ class LoginPage extends Component {
   render () {
     return (
       <div>
-        <h1>Login User</h1>
         <LoginForm
-          user={this.state.user}
           onChange={this.handleUserChange.bind(this)}
           onSave={this.loginUser.bind(this)}
           error={this.state.error} />

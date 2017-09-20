@@ -47,7 +47,6 @@ class RegisterPage extends Component {
       window.sessionStorage.setItem('userId', userInfo._id)
       window.sessionStorage.setItem('username', userInfo.username)
 
-      // This will update the entire app UI (e.g. the navigation bar)
       this.setState({
         user: {
           username: userInfo.username,
@@ -55,7 +54,7 @@ class RegisterPage extends Component {
         }
       })
 
-      this.props.history.push('/home')
+      this.props.history.push('/book-library/home')
       this.showInfo('You have successfully registered')
     }
   }
@@ -74,9 +73,7 @@ class RegisterPage extends Component {
   render () {
     return (
       <div>
-        <h1>Register User</h1>
         <RegisterForm
-          user={this.state.user}
           onChange={this.handleUserChange.bind(this)}
           onSave={this.registerUser.bind(this)}
           error={this.state.error}
