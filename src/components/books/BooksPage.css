@@ -1,5 +1,10 @@
+table {
+  width: 90%;
+}
+
 td {
   text-align: left;
+  max-width: 700px;
 }
 
 .books-view {

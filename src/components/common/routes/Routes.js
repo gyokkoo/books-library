@@ -9,6 +9,7 @@ import EditBookPage from '../../books/EditBookPage'
 import CreateBookPage from '../../books/CreateBookPage'
 import DeleteBookPage from '../../books/DeleteBookPage'
 import BookDetails from '../../books/BookDetails'
+import ProfilePage from '../../users/ProfilePage'
 import LoginPage from '../../users/LoginPage'
 import RegisterPage from '../../users/RegisterPage'
 import Logout from '../../users/Logout'
@@ -26,6 +27,7 @@ const Routes = () => (
     <PrivateRoute path='/books-library/delete-book/:id' component={DeleteBookPage} />
     <PrivateRoute path='/books-library/create-book' component={CreateBookPage} />
     <PrivateRoute path='/books-library/logout' component={Logout} />
+    <PrivateRoute path='/books-library/profile' component={ProfilePage} />
   </Switch>
 )
 

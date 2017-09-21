@@ -7,7 +7,7 @@ const RegisterForm = (props) => (
   <div className='row'>
     <div className='col-md-offset-4 col-md-3'>
       <div>{props.error}</div>
-      <div className='user-form'>
+      <form className='user-form'>
         <h4>Register here</h4>
         <input
           className='form-control input-sm chat-input'
@@ -45,7 +45,7 @@ const RegisterForm = (props) => (
             <Link to='/books-library/login'>Login here</Link>
           </p>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 )

@@ -20,7 +20,13 @@ class NavigationBar extends Component {
           <Link to='/books-library/books'>Books</Link>
           <Link to='/books-library/create-book'>Create Book</Link>
           <Link to='/books-library/logout'>Logout</Link>
-          <span className='loggedInUser'>Welcome, {window.sessionStorage.getItem('username')}!</span>
+          <span className='loggedInUser'>
+            <Link to='/books-library/profile'>
+              <i className='glyphicon glyphicon-user' />
+              &nbsp;
+              {window.sessionStorage.getItem('username')}
+            </Link>
+          </span>
         </span>
     }
 
