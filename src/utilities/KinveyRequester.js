@@ -44,22 +44,22 @@ let KinveyRequester = (function () {
     })
   }
 
-  function createBook (title, author, description) {
+  function createBook (title, author, description, imageUrl, addedByUser) {
     return $.ajax({
       method: 'POST',
       url: baseUrl + 'appdata/' + appId + '/books',
       headers: getUserAuthHeaders(),
-      data: JSON.stringify({title, author, description}),
+      data: JSON.stringify({title, author, description, imageUrl, addedByUser}),
       contentType: 'application/json'
     })
   }
 
-  function editBook (bookId, title, author, description) {
+  function editBook (bookId, title, author, description, imageUrl, addedByUser) {
     return $.ajax({
       method: 'PUT',
       url: baseUrl + 'appdata/' + appId + '/books/' + bookId,
       headers: getUserAuthHeaders(),
-      data: { title, author, description }
+      data: { title, author, description, imageUrl, addedByUser }
     })
   }
 

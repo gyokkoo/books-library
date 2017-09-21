@@ -2,15 +2,20 @@ import React, { Component } from 'react'
 import KinveyRequester from '../../utilities/KinveyRequester'
 import Helpers from '../../utilities/Helpers'
 
+import './Form.css'
+
 class EditBookPage extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
       book: {
+        bookId: '',
         title: '',
         author: '',
-        description: ''
+        description: '',
+        imageUrl: '',
+        addedByUser: ''
       }
     }
 
@@ -27,7 +32,9 @@ class EditBookPage extends Component {
           bookId: id,
           title: book.title,
           author: book.author,
-          description: book.description
+          description: book.description,
+          imageUrl: book.imageUrl,
+          addedByUser: book.addedByUser
         }
       })
     }
@@ -48,11 +55,15 @@ class EditBookPage extends Component {
 
   editBook (event) {
     event.preventDefault()
+    const book = this.state.book
+    const username = window.sessionStorage.getItem('username')
     KinveyRequester.editBook(
-      this.state.book.bookId,
-      this.state.book.title,
-      this.state.book.author,
-      this.state.book.description
+      book.bookId,
+      book.title,
+      book.author,
+      book.description,
+      book.imageUrl,
+      username
     )
     .then(editBookSuccess.bind(this))
     function editBookSuccess () {
@@ -64,33 +75,57 @@ class EditBookPage extends Component {
   render () {
     if (this.state.book) {
       return (
-        <form className='edit-book-form'>
-          <h1>Edit Book</h1>
-          <label>
-            <div>Title:</div>
-            <input type='text' name='title' size='35' required
-              value={this.state.book.title}
-              onChange={this.handleUserChange} />
-          </label>
-          <br />
-          <label>
-            <div>Author:</div>
-            <input type='text' name='author' required
-              value={this.state.book.author}
-              onChange={this.handleUserChange} />
-          </label>
-          <br />
-          <label>
-            <div>Description:</div>
-            <textarea name='description' rows='10'
-              value={this.state.book.description}
-              onChange={this.handleUserChange} />
-          </label>
-          <br />
-          <div>
-            <input type='submit' value='Edit' onClick={this.editBook} />
+        <div className='row'>
+          <div className='col-md-offset-4 col-md-3'>
+            <form className='book-form'>
+              <h2>Edit Book</h2>
+              <label>
+                <div>Title:</div>
+                <input
+                  className='form-control input-sm chat-input'
+                  type='text' name='title' size='50' required
+                  value={this.state.book.title}
+                  onChange={this.handleUserChange} />
+              </label>
+              <label>
+                <div>Image url:</div>
+                <input
+                  className='form-control input-sm chat-input'
+                  type='url' name='imageUrl' size='50'
+                  value={this.state.book.imageUrl}
+                  onChange={this.handleUserChange} />
+              </label>
+              <br />
+              <label>
+                <div>Author:</div>
+                <input
+                  className='form-control input-sm chat-input'    
+                  type='text' name='author' required
+                  value={this.state.book.author}
+                  onChange={this.handleUserChange} />
+              </label>
+              <br />
+              <label>
+                <div>Description:</div>
+                <textarea
+                  className='form-control input-sm chat-input'
+                  name='description' rows='10'
+                  value={this.state.book.description}
+                  onChange={this.handleUserChange} />
+              </label>
+              <br />
+              <div>
+                <span className='group-btn'>
+                  <input
+                    className='btn btn-primary btn-md'
+                    value='Edit Book'
+                    type='submit'
+                    onClick={this.editBook} />
+                </span>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       )
     } else {
       return null

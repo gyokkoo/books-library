@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import KinveyRequester from '../../utilities/KinveyRequester'
 import Helpers from '../../utilities/Helpers'
 
+import './Form.css'
+
 class DeleteBookPage extends Component {
   constructor (props) {
     super(props)
@@ -53,29 +55,45 @@ class DeleteBookPage extends Component {
     let book = this.state.book
     if (book) {
       return (
-        <form className='delete-book-form'>
-          <h1>Confirm Delete Book</h1>
-          <label>
-            <div>Title:</div>
-            <input type='text' name='title' size='35' disabled
-              value={this.state.book.title} />
-          </label>
-          <br />
-          <label>
-            <div>Author:</div>
-            <input type='text' name='author' disabled
-              value={this.state.book.author} />
-          </label>
-          <br />
-          <label>
-            <div>Description:</div>
-            <textarea name='description' rows='10' disabled
-              value={this.state.book.description} />
-          </label>
-          <div>
-            <input type='submit' value='Delete' onClick={this.deleteBook} />
+        <div className='row'>
+          <div className='col-md-offset-4 col-md-3'>
+            <form className='book-form'>
+              <h2>Confirm Delete Book</h2>
+              <label>
+                <div>Title:</div>
+                <input
+                  className='form-control input-sm chat-input'
+                  type='text' name='title' size='35' disabled
+                  value={this.state.book.title} />
+              </label>
+              <br />
+              <label>
+                <div>Author:</div>
+                <input
+                  className='form-control input-sm chat-input'
+                  type='text' name='author' disabled
+                  value={this.state.book.author} />
+              </label>
+              <br />
+              <label>
+                <div>Description:</div>
+                <textarea
+                  className='form-control input-sm chat-input'
+                  name='description' rows='10' disabled
+                  value={this.state.book.description} />
+              </label>
+              <div>
+                <span className='group-btn'>
+                  <input
+                    className='btn btn-danger btn-md'
+                    value='Delete Book'
+                    type='submit'
+                    onClick={this.deleteBook} />
+                </span>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       )
     } else {
       return null

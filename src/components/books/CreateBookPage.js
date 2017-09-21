@@ -11,7 +11,9 @@ class CreateBookPage extends Component {
       book: {
         title: '',
         author: '',
-        description: ''
+        description: '',
+        imageUrl: '',
+        addedByUser: ''
       }
     }
 
@@ -34,10 +36,13 @@ class CreateBookPage extends Component {
 
   createBook (event) {
     event.preventDefault()
+    const username = window.sessionStorage.getItem('username')
     KinveyRequester.createBook(
       this.state.book.title,
       this.state.book.author,
-      this.state.book.description
+      this.state.book.description,
+      this.state.book.imageUrl,
+      username
     )
     .then(createBookSuccess.bind(this))
     function createBookSuccess () {
@@ -58,6 +63,15 @@ class CreateBookPage extends Component {
                 className='form-control input-sm chat-input'
                 type='text' name='title' size='50' required
                 value={this.state.book.title}
+                onChange={this.handleUserChange} />
+            </label>
+            <br />
+            <label>
+              <div>Book image url (optional):</div>
+              <input
+                className='form-control input-sm chat-input'
+                type='url' name='imageUrl' size='50'
+                value={this.state.book.imageUrl}
                 onChange={this.handleUserChange} />
             </label>
             <br />

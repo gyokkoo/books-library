@@ -13,7 +13,9 @@ class BookDetails extends Component {
         bookId: '',
         title: '',
         author: '',
-        description: ''
+        description: '',
+        imageUrl: '',
+        addedByUser: ''
       }
     }
   }
@@ -27,7 +29,9 @@ class BookDetails extends Component {
           bookId: id,
           title: book.title,
           author: book.author,
-          description: book.description
+          description: book.description,
+          imageUrl: book.imageUrl,
+          addedByUser: book.addedByUser
         }
       })
     }
@@ -53,13 +57,13 @@ class BookDetails extends Component {
   render () {
     const book = this.state.book
     if (book) {
-      console.log(this.state.book)
       return (
         <div className='text-center'>
+          <img src={book.imageUrl} alt={book.title + ' book'} />
           <h2>{book.title}</h2>
           <h3>{book.author}</h3>
           <p>{book.description}</p>
-
+          <div>Added by user: {book.addedByUser}</div>
           <Link to={`/books-library/edit-book/${book.bookId}`}>
             <button className='btn btn-primary'>Edit</button>
           </Link>
