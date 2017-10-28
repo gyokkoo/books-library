@@ -99,8 +99,8 @@ class EditBookPage extends Component {
               <label>
                 <div>Author:</div>
                 <input
-                  className='form-control input-sm chat-input'    
-                  type='text' name='author' required
+                  className='form-control input-sm chat-input'
+                  type='text' name='author' required size='50'
                   value={this.state.book.author}
                   onChange={this.handleUserChange} />
               </label>
@@ -109,19 +109,17 @@ class EditBookPage extends Component {
                 <div>Description:</div>
                 <textarea
                   className='form-control input-sm chat-input'
-                  name='description' rows='10'
+                  name='description' rows='10' cols='50'
                   value={this.state.book.description}
                   onChange={this.handleUserChange} />
               </label>
               <br />
-              <div>
-                <span className='group-btn'>
-                  <input
-                    className='btn btn-primary btn-md'
-                    value='Edit Book'
-                    type='submit'
-                    onClick={this.editBook} />
-                </span>
+              <div className='group-btn text-center'>
+                <input
+                  className='btn btn-primary btn-md'
+                  value='Edit Book'
+                  type='submit'
+                  onClick={this.editBook} />
               </div>
             </form>
           </div>

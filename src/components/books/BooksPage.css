@@ -3,8 +3,11 @@ table {
 }
 
 td {
+  overflow: hidden;  
   text-align: left;
   max-width: 700px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .books-view {

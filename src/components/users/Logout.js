@@ -8,7 +8,7 @@ class Logout extends Component {
     function logoutSuccess () {
       window.sessionStorage.clear()
       Helpers.showInfo('You have successfully logged out')
-      this.props.history.push('/home')
+      this.props.history.push('/books-library/home')
     }
   }
 

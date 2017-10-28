@@ -71,7 +71,7 @@ class DeleteBookPage extends Component {
                 <div>Author:</div>
                 <input
                   className='form-control input-sm chat-input'
-                  type='text' name='author' disabled
+                  type='text' name='author' disabled size='35'
                   value={this.state.book.author} />
               </label>
               <br />
@@ -79,17 +79,15 @@ class DeleteBookPage extends Component {
                 <div>Description:</div>
                 <textarea
                   className='form-control input-sm chat-input'
-                  name='description' rows='10' disabled
+                  name='description' rows='10' disabled cols='50'
                   value={this.state.book.description} />
               </label>
-              <div>
-                <span className='group-btn'>
-                  <input
-                    className='btn btn-danger btn-md'
-                    value='Delete Book'
-                    type='submit'
-                    onClick={this.deleteBook} />
-                </span>
+              <div className='group-btn text-center'>
+                <input
+                  className='btn btn-danger btn-md'
+                  value='Delete Book'
+                  type='submit'
+                  onClick={this.deleteBook} />
               </div>
             </form>
           </div>

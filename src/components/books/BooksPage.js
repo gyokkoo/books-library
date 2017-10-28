@@ -52,7 +52,6 @@ export default class BooksView extends Component {
         <td>{book.author}</td>
         <td>{book.description}</td>
         <td><Link to={`/books-library/book-details/${book._id}`}>More info</Link></td>
-        {/* {this.getActions(book, this.props.userId)} */}
       </tr>
     )
 
@@ -74,23 +73,5 @@ export default class BooksView extends Component {
         </table>
       </div>
     )
-  }
-
-  getActions (book) {
-    if (book._acl.creator === window.sessionStorage.getItem('userId')) {
-      return (
-        <td>
-          <Link to={`/books-library/edit-book/${book._id}`}>
-            <input type='button' value='Edit' />
-          </Link>
-          &nbsp;
-          <Link to={`/books-library/delete-book/${book._id}`}>
-            <input type='button' value='Delete' />
-          </Link>
-        </td>
-      )
-    } else {
-      return <td />
-    }
   }
 }

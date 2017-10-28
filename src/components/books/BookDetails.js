@@ -70,19 +70,38 @@ class BookDetails extends Component {
               <div>
                 Added by user: <em>{book.addedByUser}</em>
               </div>
-              <Link to={`/books-library/edit-book/${book.bookId}`}>
+              {this.getActions(book)}
+              {/* <Link to={`/books-library/edit-book/${book.bookId}`}>
                 <button className='btn btn-primary'>Edit</button>
               </Link>
               &nbsp;
               <Link to={`/books-library/delete-book/${book.bookId}`}>
                 <button className='btn btn-primary'>Delete</button>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
       )
     } else {
       return null
+    }
+  }
+
+  getActions (book) {
+    if (book.addedByUser === window.sessionStorage.getItem('username')) {
+      return (
+        <td>
+          <Link to={`/books-library/edit-book/${book.bookId}`}>
+            <button className='btn btn-info'>Edit</button>
+          </Link>
+          &nbsp;
+          <Link to={`/books-library/delete-book/${book.bookId}`}>
+            <button className='btn btn-danger'>Delete</button>
+          </Link>
+        </td>
+      )
+    } else {
+      return <td />
     }
   }
 }

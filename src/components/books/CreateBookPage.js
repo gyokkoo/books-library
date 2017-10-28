@@ -79,7 +79,7 @@ class CreateBookPage extends Component {
               <div>Author:</div>
               <input
                 className='form-control input-sm chat-input'
-                type='text' name='author' required
+                type='text' name='author' required size='50'
                 value={this.state.book.author}
                 onChange={this.handleUserChange} />
             </label>
@@ -88,7 +88,7 @@ class CreateBookPage extends Component {
               <div>Description:</div>
               <textarea
                 className='form-control input-sm chat-input'
-                name='description' rows='10'
+                name='description' rows='10' cols='50'
                 value={this.state.book.description}
                 onChange={this.handleUserChange} />
             </label>
