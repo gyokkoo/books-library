@@ -54,7 +54,7 @@ class RegisterPage extends Component {
         }
       })
 
-      this.props.history.push('/book-library/home')
+      this.props.history.push('/books-library/home')
       this.showInfo('You have successfully registered')
     }
   }
