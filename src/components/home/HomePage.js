@@ -16,7 +16,7 @@ class HomePage extends Component {
           </Link>
           <br />
           <Link to='/books-library/create-book'>
-            <button>Create book</button>
+            <button>Add book</button>
           </Link>
           <hr />
         </div>

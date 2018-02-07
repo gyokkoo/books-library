@@ -6,7 +6,9 @@ import KinveyRequester from '../../utilities/KinveyRequester'
 import EditBookPage from './EditBookPage'
 import './BooksPage.css'
 
-export default class BooksView extends Component {
+import BookStore from '../../stores/BookStore'
+
+class BooksView extends Component {
   constructor (props) {
     super(props)
 
@@ -14,6 +16,16 @@ export default class BooksView extends Component {
       userId: '',
       books: []
     }
+
+    this.getBooks = this.getBooks.bind(this)
+  }
+
+  getBooks () {
+    let books = BookStore.getAllBooks()
+    this.setState({
+      books,
+      userId: window.sessionStorage.getItem('userId')
+    })
   }
 
   componentDidMount () {
@@ -75,3 +87,5 @@ export default class BooksView extends Component {
     )
   }
 }
+
+export default BooksView
